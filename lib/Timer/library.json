@@ -1,0 +1,19 @@
+{
+    "name": "Timer",
+    "version": "1.0.0",
+    "description": "Centralized timing services for the AK3Y Instrument Controller.",
+    "keywords": [
+        "timer",
+        "timing",
+        "framework",
+        "ak3y"
+    ],
+    "authors": [
+        {
+            "name": "Bob Fontana, AK3Y"
+        }
+    ],
+    "build": {
+        "includeDir": "."
+    }
+}

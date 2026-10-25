@@ -1,0 +1,25 @@
+{
+  "name": "Instrument",
+  "version": "0.61.0",
+  "description": "Generic addressed-instrument abstraction for the AK3Y Instrument Controller.",
+  "keywords": [
+    "instrument",
+    "gpib",
+    "ieee-488"
+  ],
+  "authors": [
+    {
+      "name": "Bob Fontana",
+      "maintainer": true
+    }
+  ],
+  "frameworks": [
+    "arduino"
+  ],
+  "platforms": [
+    "espressif32"
+  ],
+  "dependencies": {
+    "IEEE488": "*"
+  }
+}

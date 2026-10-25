@@ -1,0 +1,16 @@
+{
+    "name": "Version",
+    "version": "1.0.0",
+    "description": "Project version information",
+    "keywords": [
+        "version",
+        "project"
+    ],
+    "authors": [
+        {
+            "name": "Bob Fontana, AK3Y"
+        }
+    ],
+    "frameworks": "arduino",
+    "platforms": "espressif32"
+}

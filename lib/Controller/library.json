@@ -1,0 +1,22 @@
+{
+    "name": "Controller",
+    "version": "0.40.0",
+    "description": "Primary application controller for the AK3Y Instrument Controller.",
+    "keywords":
+    [
+        "controller",
+        "application",
+        "framework",
+        "coordination"
+    ],
+    "authors":
+    [
+        {
+            "name": "Bob Fontana, AK3Y"
+        }
+    ],
+    "build":
+    {
+        "includeDir": "."
+    }
+}

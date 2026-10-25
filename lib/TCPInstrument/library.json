@@ -1,0 +1,7 @@
+{
+  "name": "TCPInstrument",
+  "version": "0.1.0",
+  "description": "TCP socket transport for AK3Y Instrument Controller",
+  "frameworks": "arduino",
+  "platforms": "espressif32"
+}

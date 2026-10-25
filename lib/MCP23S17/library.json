@@ -1,0 +1,20 @@
+{
+    "name": "MCP23S17",
+    "version": "1.0.0",
+    "description": "Microchip MCP23S17 16-bit SPI GPIO Expander driver for the AK3Y Instrument Controller.",
+    "keywords": [
+        "mcp23s17",
+        "gpio",
+        "spi",
+        "expander",
+        "driver"
+    ],
+    "authors": [
+        {
+            "name": "Bob Fontana, AK3Y"
+        }
+    ],
+    "license": "Proprietary",
+    "frameworks": "arduino",
+    "platforms": "espressif32"
+}

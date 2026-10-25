@@ -1,0 +1,19 @@
+{
+    "name": "SPIManager",
+    "version": "1.0.0",
+    "description": "SPI bus management services for the AK3Y Instrument Controller.",
+    "keywords": [
+        "spi",
+        "bus",
+        "manager",
+        "framework"
+    ],
+    "authors": [
+        {
+            "name": "Bob Fontana, AK3Y"
+        }
+    ],
+    "license": "Proprietary",
+    "frameworks": "arduino",
+    "platforms": "espressif32"
+}

@@ -1,0 +1,20 @@
+{
+    "name": "SPIDevice",
+    "version": "1.0.0",
+    "description": "Common base class for SPI peripheral devices used by the AK3Y Instrument Controller.",
+    "keywords": [
+        "spi",
+        "device",
+        "base",
+        "driver",
+        "framework"
+    ],
+    "authors": [
+        {
+            "name": "Bob Fontana, AK3Y"
+        }
+    ],
+    "license": "Proprietary",
+    "frameworks": "arduino",
+    "platforms": "espressif32"
+}

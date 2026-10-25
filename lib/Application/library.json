@@ -1,0 +1,16 @@
+{
+    "name": "Application",
+    "version": "1.0.0",
+    "description": "Application composition root",
+    "keywords": [
+        "application",
+        "framework"
+    ],
+    "authors": [
+        {
+            "name": "Bob Fontana, AK3Y"
+        }
+    ],
+    "frameworks": "arduino",
+    "platforms": "espressif32"
+}

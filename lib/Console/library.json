@@ -1,0 +1,23 @@
+{
+    "name": "Console",
+    "version": "0.40.0",
+    "description": "System console services for the AK3Y Instrument Controller.",
+    "keywords":
+    [
+        "console",
+        "serial",
+        "logging",
+        "diagnostics",
+        "framework"
+    ],
+    "authors":
+    [
+        {
+            "name": "Bob Fontana, AK3Y"
+        }
+    ],
+    "build":
+    {
+        "includeDir": "."
+    }
+}

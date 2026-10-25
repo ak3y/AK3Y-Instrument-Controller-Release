@@ -1,0 +1,20 @@
+{
+    "name": "Subsystem",
+    "version": "0.30.0",
+    "description": "Abstract base class for all firmware subsystems.",
+    "keywords": [
+        "framework",
+        "subsystem",
+        "architecture"
+    ],
+    "authors":
+    [
+        {
+            "name": "Bob Fontana, AK3Y"
+        }
+    ],
+    "build":
+    {
+        "includeDir": "."
+    }
+}

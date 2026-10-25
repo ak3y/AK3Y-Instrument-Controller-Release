@@ -1,0 +1,15 @@
+# PlatformIO build artifacts
+.pio/
+.pioenvs/
+.piolibdeps/
+# IDE and operating-system metadata
+.vscode/
+.DS_Store
+**/.DS_Store
+__MACOSX/
+._*
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+RELEASE_PREPARATION.md
