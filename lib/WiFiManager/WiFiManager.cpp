@@ -2,14 +2,13 @@
  * File: WiFiManager.cpp
  * Project: AK3Y Instrument Controller
  * Purpose: Wi-Fi connectivity and network configuration.
- * Responsibilities: Loads Wi-Fi credentials from NVS (or legacy SD configuration), connects to Wi-Fi, and exposes network status.
- * Dependencies: ConfigurationFile, Console, Arduino WiFi, Preferences.
+ * Responsibilities: Loads Wi-Fi credentials from NVS, connects to Wi-Fi, and exposes network status.
+ * Dependencies: Console, Arduino WiFi, Preferences.
  * Notes: Documentation only; interface behavior is defined by the code below.
  ******************************************************************************/
 
 #include "WiFiManager.h"
 
-#include <ConfigurationFile.h>
 #include <Console.h>
 #include <WiFi.h>
 #include <Preferences.h>
@@ -33,10 +32,8 @@ WiFiManager::WiFiManager(
 
 bool WiFiManager::initialize()
 {
-    // Milestone 0.84(d)-1: use NVS credentials when present. During migration,
-    // retain the original SD-card credentials as a first-boot fallback.
-    // Provisioning AP and browser-based credential replacement follow later.
-    bool fromLegacySD = false;
+    // Wi-Fi credentials are stored exclusively in NVS.
+    // If unavailable, start first-time browser provisioning.
     bool haveCredentials = false;
     Preferences preferences;
 
@@ -62,27 +59,10 @@ bool WiFiManager::initialize()
 
     if (!haveCredentials)
     {
-        if (!m_configurationFile.getValue(
-                "/config/network.cfg", "wifi", "ssid",
-                m_ssid, sizeof(m_ssid)) ||
-            !m_configurationFile.getValue(
-                "/config/network.cfg", "wifi", "password",
-                m_password, sizeof(m_password)) ||
-            !m_configurationFile.getValue(
-                "/config/network.cfg", "wifi", "hostname",
-                m_hostname, sizeof(m_hostname)) ||
-            m_ssid[0] == '\0')
-        {
-            m_console.println("Wi-Fi: No valid NVS or legacy SD credentials.");
-            return startProvisioningAP();
-        }
-        fromLegacySD = true;
-        m_console.println("Wi-Fi: Using legacy SD credentials for migration.");
+        m_console.println("Wi-Fi: No valid NVS credentials; starting setup.");
+        return startProvisioningAP();
     }
-    else
-    {
-        m_console.println("Wi-Fi: Credentials loaded from NVS.");
-    }
+    m_console.println("Wi-Fi: Credentials loaded from NVS.");
 
     WiFi.mode(WIFI_STA);
     if (m_hostname[0] != '\0')
@@ -100,30 +80,6 @@ bool WiFiManager::initialize()
             return startProvisioningAP();
         }
         delay(100);
-    }
-
-    // Only migrate a legacy configuration after a successful connection.
-    // Never overwrite an existing NVS credential set on a failed attempt.
-    if (fromLegacySD)
-    {
-        Preferences writer;
-        if (writer.begin("ak3y-wifi", false))
-        {
-            const bool saved =
-                writer.putString("ssid", m_ssid) == strlen(m_ssid) &&
-                writer.putString("password", m_password) == strlen(m_password) &&
-                writer.putString("hostname", m_hostname) == strlen(m_hostname);
-            // Mark complete only after all three fields were written.
-            const bool committed = saved && writer.putBool("valid", true) == 1;
-            writer.end();
-            m_console.println(committed ?
-                "Wi-Fi: Legacy credentials copied to NVS." :
-                "Wi-Fi: NVS migration write failed; SD fallback retained.");
-        }
-        else
-        {
-            m_console.println("Wi-Fi: Unable to open NVS for migration.");
-        }
     }
 
     // Configure SNTP in the background; do not wait for synchronization.

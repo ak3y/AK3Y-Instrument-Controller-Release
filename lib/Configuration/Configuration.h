@@ -32,7 +32,7 @@ namespace Configuration
 
     namespace Firmware
     {
-        inline constexpr char Version[] = "0.90(a)";
+        inline constexpr char Version[] = "0.90(b)";
 
         inline constexpr char HardwareRevision[] = "Rev 1.0";
     }

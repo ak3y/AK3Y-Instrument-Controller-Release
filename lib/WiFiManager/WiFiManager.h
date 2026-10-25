@@ -2,7 +2,7 @@
  * File: WiFiManager.h
  * Project: AK3Y Instrument Controller
  * Purpose: Wi-Fi connectivity and network configuration.
- * Responsibilities: Loads network settings from the SD-card configuration, connects to Wi-Fi, and exposes network status to other modules.
+ * Responsibilities: Loads network settings from NVS, connects to Wi-Fi, and exposes network status to other modules.
  * Dependencies: ConfigurationFile, Console, Arduino WiFi.
  * Notes: Documentation only; interface behavior is defined by the code below.
  ******************************************************************************/
